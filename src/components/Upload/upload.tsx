@@ -183,7 +183,7 @@ const Upload: FC<UploadProps> = (props) => {
           onChange(file);
         }
       });
-  }; //封装请求函数便于复用
+  }; 
   return (
     <div className="may-upload-compontent">
         <div className="may-upload-input" style={{display:'inline-block'}} onClick={handleClick}>

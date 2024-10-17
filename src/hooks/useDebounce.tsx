@@ -1,4 +1,4 @@
-import { useEffect, useState,  } from "react";
+import { useEffect, useState} from "react";
 function useDebounce(value:any,delay=300){
     const[debouncedValue,setDebouncedValue]=useState(value)
    useEffect(()=>{
@@ -8,7 +8,7 @@ function useDebounce(value:any,delay=300){
       return()=>{
         clearTimeout(handler)
       }
-   },[value,delay])
+   },[value,delay])//组件销毁和依赖数组变化时会销毁effect
    return debouncedValue
 }
 

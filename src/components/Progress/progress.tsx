@@ -11,10 +11,15 @@ export interface ProgressProps {
 
   const Progress: FC<ProgressProps> = (props) => {
     const {
+      //进度百分比，决定进度条的填充宽度
       percent,
+      //进度条的高度，默认为15px
       strokeHeight=15,
+      //是否显示进度文本，默认为true
       showText=true,
+      //进度条的样式，默认为空
       styles,
+      //进度条的主题颜色，默认为primary
       theme='primary',
     } = props
     return (

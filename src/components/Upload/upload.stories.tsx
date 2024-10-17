@@ -8,13 +8,6 @@ export default {
   title: 'may-Upload',
   id: 'Upload',
   component: Upload,
-  // parameters: {
-  //   docs: {
-  //     source: {
-  //       type: "code",
-  //     },
-  //   }
-  // }
 } as Meta<typeof Upload>
 
 

@@ -38,6 +38,8 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const debounceValue=useDebounce(inputValue,500)
   const triggerSearch = useRef(true)//是否select的标志
 
+
+ //处理输入值的防抖和获取建议列表(下拉框的值)
  useEffect(()=>{
     if (debounceValue) {
         if(!triggerSearch.current){
@@ -64,7 +66,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       }
  },[debounceValue])
 
-
+  //在用户输入时更新组件的状态，并触发相应的回调函数
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
     setInputValue(value);
@@ -73,17 +75,20 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     }
   };
 
+  //用于处理用户选择建议项的操作,选完后关闭
   const handleSelect = (item: DataSourceType) => {
     setInputValue(item.value);
     setShowDropdown(false)
     setSuggestions([]);
     triggerSearch.current=false
   }
+  //有用户传进来的renderOptions,使用用户自定义的渲染，否则使用默认渲染
   const renderTemplate=(item:DataSourceType)=>{
     return renderOption?renderOption(item):item.value
   }
   const generateDropdown = () => {
     return (
+      //用于实现下拉框的动画效果
       <Transition
       in={showDropdown || loading}
       animation="zoom-in-top"

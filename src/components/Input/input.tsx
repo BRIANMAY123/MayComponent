@@ -26,13 +26,19 @@ export interface inputProps extends Omit<InputHTMLAttributes<HTMLElement>, "size
 }
 const Input=forwardRef<HTMLInputElement,inputProps>((props,ref)=>{
     const {
+      //是否禁用 Input
         disabled,
+        //设置 input 大小，支持 lg 或者是 sm
         size,
+        //添加图标，在右侧悬浮添加一个图标，用于提示
         icon,
+        //添加前缀 用于配置一些固定组合
         prepend,
+        //添加后缀 用于配置一些固定组合
         append,
+        //input 的样式
         style,
-        ...restProps
+          ...restProps
       } = props
       const cnames = classNames('may-input-wrapper', {
         [`input-size-${size}`]: size,

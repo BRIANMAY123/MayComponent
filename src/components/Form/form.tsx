@@ -45,7 +45,7 @@ const Form = forwardRef<IFormRef,formProps>((props,ref) => {
   } else if(!isValid && onFinishFailed) {
     onFinishFailed(values, errors)
   }
-  }//提交表单的回调和
+  }//提交表单的回调
 
   let childrenNode: ReactNode
   if (typeof children === 'function') {
